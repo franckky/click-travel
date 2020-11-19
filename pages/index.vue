@@ -7,10 +7,22 @@
       <div>
         <h1 class="title">Choose your dream destination...</h1>
         <div class="links">
+          <!-- <nuxt-link :to="`${data.destination.code}`"> -->
+          <nuxt-link :to="`1`">
+            <b-button class="giant-button" variant="outline-primary">
+              Test Button nuxt link
+            </b-button>
+          </nuxt-link>
           <a href="#" class="giant-button"> San Francisco, USA </a>
           <a href="#" class="giant-button"> Québec, Canada </a>
           <a href="#" class="giant-button"> Bora Bora, Polynésie </a>
           <a href="#" class="giant-button"> Torres del Paine, Chile </a>
+          <!-- <Destination :destinations="destinations" /> -->
+          <ul class="giant-button">
+            <li v-for="destination in destinations" :key="destination.code">
+              {{ destination.name }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -18,7 +30,18 @@
 </template>
 
 <script>
-export default {}
+import { mapGetters } from 'vuex'
+
+export default {
+  async asyncData({ store }) {
+    await store.dispatch('loadDestinations')
+  },
+  computed: {
+    ...mapGetters({
+      destinations: 'getDestinations',
+    }),
+  },
+}
 </script>
 
 <style lang="scss">
