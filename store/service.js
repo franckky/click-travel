@@ -10,6 +10,15 @@ export default {
       destinations: response.data,
     }
   },
+  async getAllTicket() {
+    const response = await axios.get(
+      `http://travel-api.clicksomeone.com/tickets`
+    )
+
+    return {
+      destinations: response.data,
+    }
+  },
   async getById(id) {
     const response = await axios.get(
       `http://travel-api.clicksomeone.com/destinations` + id

@@ -7,10 +7,9 @@
       <div>
         <h1 class="title">Choose your dream destination...</h1>
         <div class="links">
-          <!-- <nuxt-link :to="`${data.destination.code}`"> -->
-          <nuxt-link :to="`1`">
+          <nuxt-link :to="`ticket`">
             <b-button class="giant-button" variant="outline-primary">
-              Test Button nuxt link
+              Tickets
             </b-button>
           </nuxt-link>
           <a href="#" class="giant-button"> San Francisco, USA </a>
